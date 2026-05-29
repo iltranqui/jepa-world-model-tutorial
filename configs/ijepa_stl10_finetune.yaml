@@ -1,0 +1,24 @@
+command: finetune
+dataset: stl10
+data_dir: datasets
+output_dir: runs
+run_name: ijepa_stl10_finetune
+checkpoint: runs/ijepa_stl10_pretrain/checkpoints/ijepa_pretrain_last.pt
+
+fine_tuning:
+  freeze_encoder: false
+  max_val_batches:
+
+training:
+  batch_size: 64
+  epochs: 50
+  learning_rate: 0.0003
+  weight_decay: 0.05
+  num_workers: 4
+  device: auto
+  seed: 42
+  grad_clip_norm: 1.0
+  cli_log_every_steps: 20
+  color_cli: true
+  live_full_cli: true
+  max_train_batches:

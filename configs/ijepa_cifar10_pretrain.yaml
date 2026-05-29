@@ -1,0 +1,31 @@
+command: pretrain
+dataset: cifar10
+data_dir: datasets
+output_dir: runs
+run_name: ijepa_cifar10_pretrain
+
+model:
+  image_size: 32
+  patch_size: 4
+  embed_dim: 128
+  depth: 4
+  num_heads: 4
+  mlp_ratio: 4.0
+
+jepa:
+  context_ratio: 0.6
+  ema_tau: 0.996
+
+training:
+  batch_size: 128
+  epochs: 20
+  learning_rate: 0.0005
+  weight_decay: 0.05
+  num_workers: 2
+  device: auto
+  seed: 42
+  grad_clip_norm: 1.0
+  cli_log_every_steps: 20
+  color_cli: true
+  live_full_cli: true
+  max_train_batches:

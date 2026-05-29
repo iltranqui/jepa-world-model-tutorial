@@ -20,6 +20,24 @@ pydocstyle.convention = "google"
 
 [lint.per-file-ignores]
 "setup.py" = ["PLC0415", "S404", "S603"]
+"experiments/ijepa_image_run.py" = [
+    "ANN401", # YAML/checkpoint payloads are dynamically typed at the boundary
+    "C901",   # CLI metric grading is a compact heuristic dispatcher
+    "D102",   # PyTorch forward/reset methods are conventional enough here
+    "D107",   # PyTorch module initializers are documented by class context
+    "DOC201", # Keep this runnable script's docstrings compact
+    "DOC402", # Generator intent is clear from the function name
+    "DOC501", # CLI validation errors are straightforward
+    "N812",   # torch.nn.functional as F is the PyTorch convention
+    "PIE810", # Readability is clearer with explicit metric suffix checks
+    "PLR0913", # Model/data builder signatures mirror hyperparameter configs
+    "PLR0914", # Training entry points keep local state explicit
+    "PLR0915", # Training entry points stay explicit to keep the loop inspectable
+    "PLR0911", # Metric grading maps several independent heuristics
+    "PLR2004", # Metric grading thresholds are documented in place
+    "T201",   # CLI scripts report progress and output paths with print
+    "TC003",  # Runtime import is acceptable for this single-file script
+]
 
 [format]
 preview = true

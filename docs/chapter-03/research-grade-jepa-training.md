@@ -498,6 +498,14 @@ training length
 
 not the training algorithm.
 
+The current repository also includes a small standalone local runner:
+
+```text
+experiments/ijepa_image_run.py
+```
+
+and four shell wrappers under `scripts/` for CIFAR-10 and STL-10 pretraining and fine-tuning. These wrappers are practical launchers for the repository in its current state. They do not replace the final Chapter 3 `experiments/train.py` target.
+
 ---
 
 ## 3.0.9 Configuration Scope

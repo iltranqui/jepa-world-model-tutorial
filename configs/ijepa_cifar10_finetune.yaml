@@ -6,11 +6,11 @@ run_name: ijepa_cifar10_finetune
 checkpoint: runs/ijepa_cifar10_pretrain/checkpoints/ijepa_pretrain_last.pt
 
 fine_tuning:
-  freeze_encoder: false
+  freeze_encoder: true
   max_val_batches:
 
 training:
-  batch_size: 128
+  batch_size: 1024
   epochs: 20
   learning_rate: 0.0003
   weight_decay: 0.05

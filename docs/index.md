@@ -520,6 +520,20 @@ configs/ijepa_stl10_base.yaml
 configs/ijepa_stl10_cloud.yaml
 ```
 
+Current repository-local launch files:
+
+```text
+experiments/ijepa_image_run.py
+configs/ijepa_cifar10_pretrain.yaml
+configs/ijepa_cifar10_finetune.yaml
+configs/ijepa_stl10_pretrain.yaml
+configs/ijepa_stl10_finetune.yaml
+scripts/01_train_ijepa_cifar10.sh
+scripts/02_finetune_ijepa_cifar10.sh
+scripts/03_train_ijepa_stl10.sh
+scripts/04_finetune_ijepa_stl10.sh
+```
+
 Status: **drafted**
 
 ---

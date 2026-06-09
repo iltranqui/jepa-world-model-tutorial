@@ -1,0 +1,44 @@
+command: pretrain
+dataset_dir: datasets/LegoGears
+output_dir: runs
+run_name: vjepa_lego_gears_pretrain
+
+cache:
+  frame_cache_dir: runs/cache/lego_gears_frames
+  frame_sample_fps:
+  rebuild_frame_cache: false
+
+model:
+  image_height: 540
+  image_width: 640
+  num_frames: 8
+  temporal_stride: 1
+  patch_size: 20
+  tubelet_size: 2
+  embed_dim: 128
+  depth: 4
+  num_heads: 4
+  mlp_ratio: 4.0
+
+masks:
+  short_mask_ratio: 0.15
+  long_mask_ratio: 0.35
+  short_block_scale: 0.25
+  long_block_scale: 0.50
+
+jepa:
+  ema_tau_start: 0.998
+  ema_tau_end: 1.0
+
+training:
+  batch_size: 8
+  epochs: 50
+  learning_rate: 0.0003
+  weight_decay: 0.05
+  num_workers: 2
+  device: auto
+  seed: 42
+  grad_clip_norm: 1.0
+  cli_log_every_steps: 10
+  color_cli: true
+  max_train_batches:

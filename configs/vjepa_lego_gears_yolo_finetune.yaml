@@ -1,0 +1,36 @@
+command: detect
+dataset_dir: datasets/LegoGears
+output_dir: runs
+run_name: vjepa_lego_gears_yolo_finetune
+checkpoint: runs/vjepa_lego_gears_pretrain/checkpoints/vjepa_pretrain_last.pt
+
+classes:
+  class_names:
+    - red light
+    - pin
+    - center
+    - small gear
+    - medium gear
+
+detection:
+  detector_hidden_dim: 128
+  positive_weight: 8.0
+  obj_loss_weight: 1.0
+  box_loss_weight: 5.0
+  score_threshold: 0.35
+  iou_threshold: 0.50
+  max_predictions_per_image: 25
+  max_val_batches:
+  freeze_encoder: false
+
+training:
+  batch_size: 8
+  epochs: 100
+  learning_rate: 0.0002
+  weight_decay: 0.05
+  num_workers: 2
+  device: auto
+  seed: 42
+  grad_clip_norm: 1.0
+  color_cli: true
+  max_train_batches:

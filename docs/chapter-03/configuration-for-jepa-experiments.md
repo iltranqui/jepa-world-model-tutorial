@@ -1179,7 +1179,39 @@ The cloud config changes scale and paths, not the algorithm.
 
 ---
 
-## 3.1.20 Config-Driven Builders
+## 3.1.20 Repository-Local Runnable Configs
+
+The repository currently also contains a compact runner for immediate local experiments:
+
+```text
+experiments/ijepa_image_run.py
+```
+
+It is configured by four YAML files:
+
+```text
+configs/ijepa_cifar10_pretrain.yaml
+configs/ijepa_cifar10_finetune.yaml
+configs/ijepa_stl10_pretrain.yaml
+configs/ijepa_stl10_finetune.yaml
+```
+
+Those configs are intentionally narrower than the full Chapter 3 schema above. They specify the hyperparameters required by the current shell wrappers, keep downloaded datasets under `datasets/`, and write run artifacts under `runs/`.
+
+The wrappers are:
+
+```text
+scripts/01_train_ijepa_cifar10.sh
+scripts/02_finetune_ijepa_cifar10.sh
+scripts/03_train_ijepa_stl10.sh
+scripts/04_finetune_ijepa_stl10.sh
+```
+
+They activate `/home/helldiver/.virtualenvs/papers` by default. Use them as current repository launchers, while the sections below specify the more complete config-driven training harness readers will build next.
+
+---
+
+## 3.1.21 Config-Driven Builders
 
 Chapter 2 builders can be kept for minimal scripts, but Chapter 3 should use config-driven builders.
 
@@ -1281,7 +1313,7 @@ This keeps experiment scripts thin.
 
 ---
 
-## 3.1.21 Data Loader From Config
+## 3.1.22 Data Loader From Config
 
 Update the Chapter 2 data builders or add a new one:
 
@@ -1328,7 +1360,7 @@ Paths and worker counts come from config.
 
 ---
 
-## 3.1.22 First Config-Driven Training Entry Point
+## 3.1.23 First Config-Driven Training Entry Point
 
 Create:
 
@@ -1472,7 +1504,7 @@ This is not the final Chapter 3 training harness yet. It is the bridge from Chap
 
 ---
 
-## 3.1.23 Config Tests
+## 3.1.24 Config Tests
 
 Create:
 
@@ -1595,7 +1627,7 @@ These tests catch broken configs before training.
 
 ---
 
-## 3.1.24 What We Are Not Adding Yet
+## 3.1.25 What We Are Not Adding Yet
 
 Do not add all advanced config features immediately.
 
@@ -1623,7 +1655,7 @@ This is enough to stabilize the harness before adding Fabric and ablations.
 
 ---
 
-## 3.1.25 Summary
+## 3.1.26 Summary
 
 This section introduced a structured config system for JEPA experiments.
 
